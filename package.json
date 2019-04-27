@@ -1,0 +1,19 @@
+{
+  "name": "blockchain",
+  "version": "1.0.0",
+  "description": "Basic implementation of Block chain with JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wirelesscommunicationlab/blockchainJS.git"
+  },
+  "author": "Hosein Kangavar Nazari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wirelesscommunicationlab/blockchainJS/issues"
+  },
+  "homepage": "https://github.com/wirelesscommunicationlab/blockchainJS#readme"
+}
