@@ -1,6 +1,7 @@
 const Blockchain = require('./blockchain');
 
 const bitcoin = new Blockchain();
+
 // bitcoin.createNewBlock (2222,'ASAJGSDGUJ2345','234LLIKJH3456');
 // bitcoin.createNewBlock (2322,'ASDGGSDGUJ2345','2LHLLIKJH3456');
 // bitcoin.createNewBlock(2322, 'ASDGAJGSDGUJ2345', '234LHLLIKJH3456');

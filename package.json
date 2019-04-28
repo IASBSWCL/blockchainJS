@@ -4,7 +4,8 @@
   "description": "Basic implementation of Block chain with JavaScript",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --watch dev -e js dev/api.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,8 @@
   },
   "homepage": "https://github.com/wirelesscommunicationlab/blockchainJS#readme",
   "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.18.11",
     "sha256": "^0.2.0"
   }
 }
