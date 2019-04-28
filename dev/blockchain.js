@@ -20,6 +20,9 @@ function BlockChain() {
     this.chain = [];
     // Pending transactions
     this.pendingTransactions = [];
+
+    //genesis block
+    this.createNewBlock(100,'0','0');
 }
 
 // creates new block with new transactions and push new transactions to a chain 
@@ -68,6 +71,7 @@ BlockChain.prototype.proofOfWork = function (previousBlockHash, currentBlockData
     while (hash.substring(0, 4) != '0000') {
         nonce += 1;
         hash = this.hashBlock(previousBlockHash, currentBlockData, nonce);
+        console.log(hash);
     }
 
     return nonce;
