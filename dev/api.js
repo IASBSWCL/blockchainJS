@@ -27,7 +27,7 @@ app.post('/transaction', function (req, res) {
     res.json({ note: `Transaction will be added in block ${blockIndex}.` });
 });
 
-app.get('./mine', function (req, res) {
+app.get('/mine', function (req, res) {
 
     const lastBlock = bitcoin.getLastBlock();
     const previousBlockHash = lastBlock.hash;
@@ -40,7 +40,7 @@ app.get('./mine', function (req, res) {
     const nonce = bitcoin.proofOfWork(previousBlockHash, currentBlockData)
     const blockHash = bitcoin.hashBlock(previousBlockHash,currentBlockData,nonce);
 
-// miner reward 
+// mining reward 
 
     bitcoin.createNewTransaction(12.5,"00",uuid)
 
