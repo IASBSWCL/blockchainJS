@@ -1,5 +1,19 @@
-const sha256 = require('sha256');
+// Wireless communication lab
+// Blcok Chain constructor  
+// = (holds all chain and stores the pending transactions for next round)
+// ----->>>>  createNewBlock 
+// = (Put pending transactions into a new block)
+// ----->>>>  getLastBlock
+// = (returns the index of last block in our chain)
+// ----->>>>  createNewTransaction
+//  = (push a new transaction into pending transactions and finds the right block for new transaction)
+// ----->>>>  hashBlock
+//  = (gets the current block and the hash of previous block to build a new one, uses shaw256)
+// ----->>>>  proofOfWork
+//  = (Mining step happens here, find the proper nonce in a way hash's  first four characters be 0)
+//  = ( nonce in this step could be zero, one hundered or one hundred thousands)
 
+const sha256 = require('sha256');
 
 // store all block data (new transactions) before place in chain 
 function BlockChain() {
@@ -18,7 +32,6 @@ BlockChain.prototype.createNewBlock = function (nonce, previousBlockHash, hash) 
         hash: hash,
         previousBlockHash: previousBlockHash
     };
-
     this.pendingTransactions = [];
     this.chain.push(newBlock);
     return newBlock;
@@ -36,10 +49,8 @@ BlockChain.prototype.createNewTransaction = function (amount, sender, recipient)
     }
 
     this.pendingTransactions.push(newTransaction);
-
     return this.getLastBlock()['index'] + 1;
 }
-
 
 // our hash will contain data from previous block, and the current one , so we can trace them 
 BlockChain.prototype.hashBlock = function (previousBlockHash, currentBlockData, nonce) {
@@ -47,7 +58,6 @@ BlockChain.prototype.hashBlock = function (previousBlockHash, currentBlockData, 
     const hash = sha256(dataAsString);
     return hash;
 }
-
 
 // uses a lot of energy
 BlockChain.prototype.proofOfWork = function (previousBlockHash, currentBlockData) {
