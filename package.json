@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/wirelesscommunicationlab/blockchainJS/issues"
   },
-  "homepage": "https://github.com/wirelesscommunicationlab/blockchainJS#readme"
+  "homepage": "https://github.com/wirelesscommunicationlab/blockchainJS#readme",
+  "dependencies": {
+    "sha256": "^0.2.0"
+  }
 }

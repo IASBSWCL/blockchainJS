@@ -1,3 +1,5 @@
+const sha256 = require('sha256');
+
 
 // store all block data (new transactions) before place in chain 
 function BlockChain() {
@@ -34,7 +36,31 @@ BlockChain.prototype.createNewTransaction = function (amount, sender, recipient)
     }
 
     this.pendingTransactions.push(newTransaction);
-    
-    return this.getLastBlock()['index'] + 1 ;
+
+    return this.getLastBlock()['index'] + 1;
 }
+
+
+// our hash will contain data from previous block, and the current one , so we can trace them 
+BlockChain.prototype.hashBlock = function (previousBlockHash, currentBlockData, nonce) {
+    const dataAsString = previousBlockHash + nonce.toString() + JSON.stringify(currentBlockData);
+    const hash = sha256(dataAsString);
+    return hash;
+}
+
+
+// uses a lot of energy
+BlockChain.prototype.proofOfWork = function (previousBlockHash, currentBlockData) {
+    let nonce = 0;
+    let hash = this.hashBlock(previousBlockHash, currentBlockData, nonce);
+
+    // this part is mining
+    while (hash.substring(0, 4) != '0000') {
+        nonce += 1;
+        hash = this.hashBlock(previousBlockHash, currentBlockData, nonce);
+    }
+
+    return nonce;
+}
+
 module.exports = BlockChain;
