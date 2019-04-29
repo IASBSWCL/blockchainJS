@@ -3,6 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 const BlockChain = require('./blockchain');
 const uuid = require('uuid/v1');
+const port = process.argv[2];
 
 
 // creates a uniqe ID for us, because it contains dashes(-) between addresses 
@@ -53,6 +54,6 @@ app.get('/mine', function (req, res) {
 });
 
 
-app.listen(3000, () => {
-    console.log('Listening on port 3000 .');
+app.listen(port, () => {
+    console.log(`Listening on port ${port}.`);
 });

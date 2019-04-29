@@ -14,6 +14,7 @@
 //  = ( nonce in this step could be zero, one hundered or one hundred thousands)
 
 const sha256 = require('sha256');
+const currentNodeUrl = process.argv[3];
 
 // store all block data (new transactions) before place in chain 
 function BlockChain() {
@@ -21,8 +22,11 @@ function BlockChain() {
     // Pending transactions
     this.pendingTransactions = [];
 
+    this.currentNodeUrl = currentNodeUrl;
+    this.networkNodes = [];
+
     //genesis block
-    this.createNewBlock(100,'0','0');
+    this.createNewBlock(100, '0', '0');
 }
 
 // creates new block with new transactions and push new transactions to a chain 
